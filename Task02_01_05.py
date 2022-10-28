@@ -9,8 +9,18 @@
 from random import *
 import os
 
-player_1 = input('Игрок №1: ')
-player_2 = input('Игрок №2: ')
+def who_plays():
+    player_1 = input('Ваше имя: ')
+    player = input('С кем играете? игрок №2, бот, иибот: ')
+    player_2 = ''
+    if player == 'игрок №2':
+        player_2 = input('Как его имя: ')
+    elif player == 'бот':
+        player_2 = 'бот'
+    else:
+        if player == 'иибот':
+            player_2 = 'иибот'
+    return player_1, player_2
 
 def lot(play_1, play_2):
     lots = randint(1, 2)
@@ -20,9 +30,8 @@ def lot(play_1, play_2):
     else:
         first = play_2
         second = play_1
-    print(f'Ты ходишь первый {first}, а ты второй {second}')
+    print(f'Первый ходит {first}, а второй {second}')
     return(first, second)
-print(lot(player_1, player_2))
 
 def game(play_1, play_2):
     count_candies = 2021
@@ -50,8 +59,10 @@ def game(play_1, play_2):
         else:
             print(f'Ты выиграл {play_2}!')
 
-
-#game('al', 'ma')
+players = who_plays()
+lots = lot(players[0], players[1])
+print(lots)
+#game(lots[0], lots[1])
 
 def bot(num):
     if num > 28 and num <= 2021:
@@ -72,3 +83,4 @@ def ii_bot(count_candies, move):
         move_bot = 29-move
         return move_bot
 #print(ii_bot(1001, 28))
+#who_plays()
