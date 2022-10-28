@@ -9,8 +9,8 @@
 from random import *
 import os
 
-player_1 = input('Игрок №1: ')
-player_2 = input('Игрок №2: ')
+# player_1 = input('Игрок №1: ')
+# player_2 = input('Игрок №2: ')
 
 def lot(play_1, play_2):
     lots = randint(1, 2)
@@ -22,7 +22,8 @@ def lot(play_1, play_2):
         second = play_1
     return f'Ты ходишь первый {first}, а ты второй {second}'
 
-print(lot(player_1, player_2))
+
+#print(lot(player_1, player_2))
 
 def game(play_1, play_2):
     count_candies = 2021
@@ -50,5 +51,14 @@ def game(play_1, play_2):
         else:
             print(f'Ты выиграл {play_2}!')
 
-game('al', 'ma')
+
+#game('al', 'ma')
+
+def bot(num):
+    if num > 28 and num <= 2021:
+        stride = randint(1, 28)
+    else:
+        stride = num
+    return stride
+print(bot(17))
 
