@@ -35,9 +35,13 @@ def game(lst):
         if player1 == True:
             symbol = "X"
             step = int(input("Игрок 1, ваш ход: "))
+            if step < 1 or step > 9:
+                step = int(input("Уверен? Попробуй ещё раз: "))
         else:
             symbol = "O"
             step = int(input("Игрок 2, ваш ход: "))
+            if step < 1 or step > 9:
+                step = int(input("Уверен? Попробуй ещё раз: "))
     
         step_grid(step,symbol)
         win = result()
